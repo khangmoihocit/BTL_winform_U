@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
+    //interface
     public interface DAOinterface<T>
     {
         void add(T t);
