@@ -46,7 +46,7 @@ namespace GUI
                     if(result == DialogResult.OK)
                     {
                         TrangChuGUI trangChuGUI = new TrangChuGUI();
-                        trangChuGUI.ShowDialog();
+                        trangChuGUI.Show();
                         this.Close();
                     }
                 }

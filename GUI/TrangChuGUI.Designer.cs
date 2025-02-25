@@ -29,95 +29,176 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            panel2 = new Panel();
-            panel4 = new Panel();
-            btnDangXuat = new Button();
-            panel3 = new Panel();
+            btnThongkeVaBaocao = new Button();
+            btnHoaDon = new Button();
+            btnQuanLySuDungNuoc = new Button();
+            btnKhachHang = new Button();
+            btnNhanVien = new Button();
+            btnTongQuan = new Button();
+            button6 = new Button();
             pictureBox1 = new PictureBox();
-            panel2.SuspendLayout();
-            panel4.SuspendLayout();
-            panel3.SuspendLayout();
+            panel2 = new Panel();
+            lblHeader = new Label();
+            panel_Body = new Panel();
+            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = Color.LightBlue;
+            panel1.BackColor = Color.SkyBlue;
+            panel1.Controls.Add(btnThongkeVaBaocao);
+            panel1.Controls.Add(btnHoaDon);
+            panel1.Controls.Add(btnQuanLySuDungNuoc);
+            panel1.Controls.Add(btnKhachHang);
+            panel1.Controls.Add(btnNhanVien);
+            panel1.Controls.Add(btnTongQuan);
+            panel1.Controls.Add(button6);
+            panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Left;
-            panel1.ForeColor = SystemColors.ActiveCaptionText;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(174, 704);
-            panel1.TabIndex = 0;
+            panel1.Size = new Size(309, 1033);
+            panel1.TabIndex = 2;
             // 
-            // panel2
+            // btnThongkeVaBaocao
             // 
-            panel2.Controls.Add(panel4);
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(174, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1030, 79);
-            panel2.TabIndex = 1;
+            btnThongkeVaBaocao.Dock = DockStyle.Top;
+            btnThongkeVaBaocao.Location = new Point(0, 439);
+            btnThongkeVaBaocao.Name = "btnThongkeVaBaocao";
+            btnThongkeVaBaocao.Size = new Size(309, 75);
+            btnThongkeVaBaocao.TabIndex = 12;
+            btnThongkeVaBaocao.Text = "Thống kế và báo cáo";
+            btnThongkeVaBaocao.UseVisualStyleBackColor = true;
+            btnThongkeVaBaocao.Click += btnThongkeVaBaocao_Click;
             // 
-            // panel4
+            // btnHoaDon
             // 
-            panel4.Controls.Add(btnDangXuat);
-            panel4.Dock = DockStyle.Right;
-            panel4.Location = new Point(858, 0);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(172, 79);
-            panel4.TabIndex = 0;
+            btnHoaDon.Dock = DockStyle.Top;
+            btnHoaDon.Location = new Point(0, 374);
+            btnHoaDon.Name = "btnHoaDon";
+            btnHoaDon.Size = new Size(309, 65);
+            btnHoaDon.TabIndex = 11;
+            btnHoaDon.Text = "Hóa đơn";
+            btnHoaDon.UseVisualStyleBackColor = true;
+            btnHoaDon.Click += btnHoaDon_Click;
             // 
-            // btnDangXuat
+            // btnQuanLySuDungNuoc
             // 
-            btnDangXuat.AutoSize = true;
-            btnDangXuat.BackColor = SystemColors.ActiveCaption;
-            btnDangXuat.Location = new Point(50, 12);
-            btnDangXuat.Name = "btnDangXuat";
-            btnDangXuat.Size = new Size(110, 34);
-            btnDangXuat.TabIndex = 0;
-            btnDangXuat.Text = "Đăng xuất";
-            btnDangXuat.UseVisualStyleBackColor = false;
-            btnDangXuat.Click += btnDangXuat_Click;
+            btnQuanLySuDungNuoc.Dock = DockStyle.Top;
+            btnQuanLySuDungNuoc.Location = new Point(0, 304);
+            btnQuanLySuDungNuoc.Name = "btnQuanLySuDungNuoc";
+            btnQuanLySuDungNuoc.Size = new Size(309, 70);
+            btnQuanLySuDungNuoc.TabIndex = 10;
+            btnQuanLySuDungNuoc.Text = "Quản lý sử dụng nước";
+            btnQuanLySuDungNuoc.UseVisualStyleBackColor = true;
+            btnQuanLySuDungNuoc.Click += btnQuanLySuDungNuoc_Click;
             // 
-            // panel3
+            // btnKhachHang
             // 
-            panel3.Controls.Add(pictureBox1);
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(174, 79);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(1030, 625);
-            panel3.TabIndex = 2;
+            btnKhachHang.Dock = DockStyle.Top;
+            btnKhachHang.Location = new Point(0, 235);
+            btnKhachHang.Name = "btnKhachHang";
+            btnKhachHang.Size = new Size(309, 69);
+            btnKhachHang.TabIndex = 9;
+            btnKhachHang.Text = "Khách hàng";
+            btnKhachHang.UseVisualStyleBackColor = true;
+            btnKhachHang.Click += btnKhachHang_Click;
+            // 
+            // btnNhanVien
+            // 
+            btnNhanVien.Dock = DockStyle.Top;
+            btnNhanVien.Location = new Point(0, 165);
+            btnNhanVien.Name = "btnNhanVien";
+            btnNhanVien.Size = new Size(309, 70);
+            btnNhanVien.TabIndex = 8;
+            btnNhanVien.Text = "Nhân viên";
+            btnNhanVien.UseVisualStyleBackColor = true;
+            btnNhanVien.Click += btnNhanVien_Click;
+            // 
+            // btnTongQuan
+            // 
+            btnTongQuan.Dock = DockStyle.Top;
+            btnTongQuan.Location = new Point(0, 91);
+            btnTongQuan.Name = "btnTongQuan";
+            btnTongQuan.Size = new Size(309, 74);
+            btnTongQuan.TabIndex = 7;
+            btnTongQuan.Text = "Tổng quan";
+            btnTongQuan.UseVisualStyleBackColor = true;
+            btnTongQuan.Click += btnTongQuan_Click;
+            // 
+            // button6
+            // 
+            button6.Dock = DockStyle.Bottom;
+            button6.Location = new Point(0, 956);
+            button6.Name = "button6";
+            button6.Size = new Size(309, 77);
+            button6.TabIndex = 6;
+            button6.Text = "button6";
+            button6.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
-            pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Image = Properties.Resources.backgrou;
+            pictureBox1.Dock = DockStyle.Top;
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1030, 625);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.Size = new Size(309, 91);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.Controls.Add(lblHeader);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(309, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1593, 91);
+            panel2.TabIndex = 3;
+            // 
+            // lblHeader
+            // 
+            lblHeader.AutoSize = true;
+            lblHeader.Font = new Font("Roboto", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHeader.ForeColor = Color.Blue;
+            lblHeader.Location = new Point(685, 26);
+            lblHeader.Name = "lblHeader";
+            lblHeader.Size = new Size(142, 34);
+            lblHeader.TabIndex = 0;
+            lblHeader.Text = "Trang chủ";
+            lblHeader.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // panel_Body
+            // 
+            panel_Body.BackColor = Color.SteelBlue;
+            panel_Body.Dock = DockStyle.Fill;
+            panel_Body.Location = new Point(309, 91);
+            panel_Body.Name = "panel_Body";
+            panel_Body.Size = new Size(1593, 942);
+            panel_Body.TabIndex = 4;
+            // 
             // TrangChuGUI
             // 
-            AutoScaleDimensions = new SizeF(11F, 24F);
+            AutoScaleDimensions = new SizeF(13F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1204, 704);
-            Controls.Add(panel3);
+            BackColor = Color.Navy;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1902, 1033);
+            Controls.Add(panel_Body);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Font = new Font("Roboto", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Margin = new Padding(4);
+            Font = new Font("Roboto", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Margin = new Padding(5);
             Name = "TrangChuGUI";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Quản ly thu phí cấp nước sạch";
-            panel2.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            panel3.ResumeLayout(false);
+            WindowState = FormWindowState.Maximized;
+            Load += TrangChuGUI_Load;
+            panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -125,9 +206,15 @@
 
         private Panel panel1;
         private Panel panel2;
-        private Panel panel4;
-        private Panel panel3;
         private PictureBox pictureBox1;
-        private Button btnDangXuat;
+        private Panel panel_Body;
+        private Button button6;
+        private Button btnKhachHang;
+        private Button btnNhanVien;
+        private Button btnTongQuan;
+        private Button btnThongkeVaBaocao;
+        private Button btnHoaDon;
+        private Button btnQuanLySuDungNuoc;
+        private Label lblHeader;
     }
 }
