@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
 using DTO;
+using exception;
 
 namespace GUI
 {
@@ -35,34 +36,34 @@ namespace GUI
             return Regex.IsMatch(email, "^[a-zA-Z0-9_.]{3,20}@gmail.com$");
         }
 
-        private void btnDangKy_Click(object sender, EventArgs e)
+        private bool checkInput()
         {
             //check input tên tk
             if (!checkInputTaiKhoan(txtTenTaiKhoan.Text))
             {
                 MessageBox.Show("tên tài khoản không được chứa kí đặc biệt và từ phải từ 6 - 24 kí tự");
-                return;
+                return false;
             }
 
             //check mật khẩu
             if (!checkInputTaiKhoan(txtMatKhau.Text))
             {
                 MessageBox.Show("mật khẩu không được chứa kí đặc biệt và từ phải từ 6 - 24 kí tự");
-                return;
+                return false;
             }
 
             //check email
             if (!checkInputEmail(txtEmail.Text))
             {
                 MessageBox.Show("email không p được chứa kí tự đặc biệt và email phải có định dạng '@gmail.com'");
-                return;
+                return false;
             }
 
             //xac nhan mk
             if (txtXacNhanMK.Text != txtMatKhau.Text)
             {
                 MessageBox.Show("mật khẩu không khớp");
-                return;
+                return false;
             }
 
             //
@@ -70,29 +71,36 @@ namespace GUI
             if (taiKhoanBUS.findByTentaikhoan(txtTenTaiKhoan.Text).Count > 0)
             {
                 MessageBox.Show("Tên tài khoản đã tồn tại");
-                return;
+                return false;
             }
 
             //check email da co chx
             if (taiKhoanBUS.findByEmail(txtEmail.Text).Count > 0)
             {
                 MessageBox.Show("Email đã tồn tại");
-                return;
+                return false;
             }
-
-            try
-            {
-                TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO(txtTenTaiKhoan.Text, txtMatKhau.Text, txtEmail.Text);
-                taiKhoanBUS.add(taiKhoanDTO);
-                DialogResult result = MessageBox.Show("Tạo tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (result == DialogResult.OK) this.Close();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            
+            return true;
         }
+
+        private void btnDangKy_Click(object sender, EventArgs e)
+        {
+            if (checkInput())
+            {
+                try
+                {
+                    TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO(txtTenTaiKhoan.Text, txtMatKhau.Text, txtEmail.Text);
+                    taiKhoanBUS.add(taiKhoanDTO);
+                    DialogResult result = MessageBox.Show("Tạo tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (result == DialogResult.OK) this.Close();
+                }
+                catch (DatabaseException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }//checkiput
+        }
+
+
     }
 }
