@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using exception;
 using Microsoft.Data.SqlClient;
 
 namespace DAO.impl
@@ -41,7 +42,7 @@ namespace DAO.impl
             }//try
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                throw new DatabaseException("Lỗi không kết nối đc database. Vui lòng kiểm tra lại cấu hình database trong app.config");
             }
             return taiKhoanDTOs;
         }
@@ -80,13 +81,13 @@ namespace DAO.impl
                     command.Parameters.Add(new SqlParameter("@sEmail", SqlDbType.NVarChar, 50)).Value = taiKhoanDTO.Email;
 
                     int n = command.ExecuteNonQuery();
-                    if (n <= 0) throw new Exception("Lỗi, Không thể thêm tài khoản");
+                    if (n <= 0) throw new DatabaseException("Lỗi, Không thể thêm tài khoản");
                     connection.Close();
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                throw new DatabaseException("Lỗi: " + ex.Message);
             }
         }
 

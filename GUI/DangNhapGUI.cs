@@ -9,16 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
 using DTO;
+using exception;
 
 namespace GUI
 {
     public partial class DangNhapGUI : Form
     {
-        private TaiKhoanBUS taiKhoanBUS = new TaiKhoanBUS();
+        private TaiKhoanBUS taiKhoanBUS;
 
         public DangNhapGUI()
         {
             InitializeComponent();
+            taiKhoanBUS = new TaiKhoanBUS();
         }
 
         private void lklQuenMatKhau_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -31,31 +33,39 @@ namespace GUI
         {
             DangKyGUI dangKyGUI = new DangKyGUI();
             dangKyGUI.ShowDialog();
-        }
 
+        }
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             if (txtTaiKhoan.Text.Trim() == "") MessageBox.Show("Vui lòng nhập tên tài khoản");
             else if (txtMatKhau.Text.Trim() == "") MessageBox.Show("Vui lòng nhập mật khẩu");
             else
             {
-                List<TaiKhoanDTO> taiKhoanDTOs = taiKhoanBUS.findByTentaikhoanAndMatkhau(txtTaiKhoan.Text, txtMatKhau.Text);
-                if(taiKhoanDTOs.Count != 0)
+                try
                 {
-                    DialogResult result = MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if(result == DialogResult.OK)
+                    List<TaiKhoanDTO> taiKhoanDTOs = taiKhoanBUS.findByTentaikhoanAndMatkhau(txtTaiKhoan.Text, txtMatKhau.Text);
+                    if (taiKhoanDTOs.Count >  0)
                     {
-                        TrangChuGUI trangChuGUI = new TrangChuGUI();
-                        trangChuGUI.Show();
-                        this.Close();
+                        DialogResult re = MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if(re == DialogResult.OK)
+                        {
+                            TrangChuGUI trangChuGUI = new TrangChuGUI();
+                            trangChuGUI.Show();
+                            this.Hide();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tên tài khoản hoặc mật khẩu không chính xác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-                else
+                catch(DatabaseException ex)
                 {
-                    MessageBox.Show("Tên tài khoản hoặc mật khẩu không chính xác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-
+                    MessageBox.Show(ex.Message);
+                }//try
+            }//else
         }
+
+
     }
 }

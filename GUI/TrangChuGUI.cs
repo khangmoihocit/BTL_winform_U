@@ -105,5 +105,10 @@ namespace GUI
             openChildForm(new ThongKeBaoCaoGUI());
             lblHeader.Text = "Thống kê và báo cáo";
         }
+
+        private void TrangChuGUI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

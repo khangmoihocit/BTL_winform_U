@@ -194,6 +194,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Quản ly thu phí cấp nước sạch";
             WindowState = FormWindowState.Maximized;
+            FormClosed += TrangChuGUI_FormClosed;
             Load += TrangChuGUI_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
