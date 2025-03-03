@@ -16,11 +16,14 @@ namespace GUI
 {
     public partial class DangKyGUI : Form
     {
-        private TaiKhoanBUS taiKhoanBUS = new TaiKhoanBUS();
+        private TaiKhoanBUS taiKhoanBUS;
+        private NhanVienBUS nhanVienBUS;
 
         public DangKyGUI()
         {
             InitializeComponent();
+            taiKhoanBUS = new TaiKhoanBUS();
+            nhanVienBUS = new NhanVienBUS();
         }
 
         //check tên tài khoản và mật khẩu
@@ -90,7 +93,8 @@ namespace GUI
                 try
                 {
                     TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO(txtTenTaiKhoan.Text, txtMatKhau.Text, txtEmail.Text);
-                    taiKhoanBUS.add(taiKhoanDTO);
+                    NhanVienDTO nhanVienDTO = cboNhanVien.SelectedItem as NhanVienDTO;
+                    taiKhoanBUS.add(taiKhoanDTO, nhanVienDTO);
                     DialogResult result = MessageBox.Show("Tạo tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (result == DialogResult.OK) this.Close();
                 }
@@ -98,9 +102,13 @@ namespace GUI
                 {
                     MessageBox.Show(ex.Message);
                 }
-            }//checkiput
+            }//checkinput
         }
 
-
+        private void DangKyGUI_Load(object sender, EventArgs e)
+        {
+            List<NhanVienDTO> nhanVienDTOs = nhanVienBUS.nhanVienDTOs();
+            nhanVienDTOs.ForEach(item =>{cboNhanVien.Items.Add(item);});
+        }
     }
 }

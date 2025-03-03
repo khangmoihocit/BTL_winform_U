@@ -13,6 +13,6 @@ namespace DAO
         List<TaiKhoanDTO> findByTentaikhoanAndMatkhau(string tenTaiKhoan, string matKhau);
         List<TaiKhoanDTO> findByTentaikhoan(string tenTaiKhoan);
         List<TaiKhoanDTO> findByEmail(string email);
-        void add(TaiKhoanDTO taiKhoanDTO);
+        void add(TaiKhoanDTO taiKhoanDTO, NhanVienDTO nhanVienDTO);
     }
 }

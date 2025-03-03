@@ -65,7 +65,7 @@ namespace DAO.impl
             return this.taiKhoanDTOs(query);
         }
 
-        public void add(TaiKhoanDTO taiKhoanDTO)
+        public void add(TaiKhoanDTO taiKhoanDTO, NhanVienDTO nhanVienDTO)
         {
             string query = "spTaiKhoan_Insert";
             try
@@ -79,6 +79,7 @@ namespace DAO.impl
                     command.Parameters.Add(new SqlParameter("@sTenTaiKhoan", SqlDbType.NVarChar, 50)).Value = taiKhoanDTO.TenTaiKhoan;
                     command.Parameters.Add(new SqlParameter("@sMatKhau", SqlDbType.NVarChar, 50)).Value = taiKhoanDTO.MatKhau;
                     command.Parameters.Add(new SqlParameter("@sEmail", SqlDbType.NVarChar, 50)).Value = taiKhoanDTO.Email;
+                    command.Parameters.Add(new SqlParameter("@iMaNV", SqlDbType.Int)).Value = nhanVienDTO.MaNhanVien;
 
                     int n = command.ExecuteNonQuery();
                     if (n <= 0) throw new DatabaseException("Lỗi, Không thể thêm tài khoản");

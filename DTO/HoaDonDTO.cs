@@ -8,7 +8,7 @@ namespace DTO
 {
     public class HoaDonDTO
     {
-        private int _id;
+        private int _maHoaDon;
         private string _tenKhachHang;
         private int _hdThang;
         private int _hdNam;
@@ -21,7 +21,7 @@ namespace DTO
         
         public HoaDonDTO(int id, string tenKhachHang, int hdThang, int hdNam, bool trangThaiThanhToan, DateTime ngayLapHD, double tongThanhTien, double soNuocTieuThu)
         {
-            Id = id;
+            MaHoaDon = id;
             TenKhachHang = tenKhachHang;
             HdThang = hdThang;
             HdNam = hdNam;
@@ -31,7 +31,7 @@ namespace DTO
             SoNuocTieuThu = soNuocTieuThu;
         }
 
-        public int Id { get => _id; set => _id = value; }
+        public int MaHoaDon { get => _maHoaDon; set => _maHoaDon = value; }
         public string TenKhachHang { get => _tenKhachHang; set => _tenKhachHang = value; }
         public int HdThang { get => _hdThang; set => _hdThang = value; }
         public int HdNam { get => _hdNam; set => _hdNam = value; }

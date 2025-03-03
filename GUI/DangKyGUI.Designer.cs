@@ -40,6 +40,8 @@
             txtEmail = new TextBox();
             btnDangKy = new Button();
             errorProvider1 = new ErrorProvider(components);
+            cboNhanVien = new ComboBox();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
@@ -76,7 +78,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Roboto", 12F);
-            label2.Location = new Point(40, 306);
+            label2.Location = new Point(40, 287);
             label2.Name = "label2";
             label2.Size = new Size(93, 24);
             label2.TabIndex = 1;
@@ -85,7 +87,7 @@
             // txtMatKhau
             // 
             txtMatKhau.Font = new Font("Roboto", 12F);
-            txtMatKhau.Location = new Point(231, 306);
+            txtMatKhau.Location = new Point(231, 287);
             txtMatKhau.Name = "txtMatKhau";
             txtMatKhau.Size = new Size(415, 32);
             txtMatKhau.TabIndex = 1;
@@ -94,7 +96,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Roboto", 12F);
-            label3.Location = new Point(40, 379);
+            label3.Location = new Point(40, 348);
             label3.Name = "label3";
             label3.Size = new Size(182, 24);
             label3.TabIndex = 1;
@@ -103,7 +105,7 @@
             // txtXacNhanMK
             // 
             txtXacNhanMK.Font = new Font("Roboto", 12F);
-            txtXacNhanMK.Location = new Point(231, 379);
+            txtXacNhanMK.Location = new Point(231, 348);
             txtXacNhanMK.Name = "txtXacNhanMK";
             txtXacNhanMK.Size = new Size(415, 32);
             txtXacNhanMK.TabIndex = 2;
@@ -112,7 +114,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Roboto", 12F);
-            label4.Location = new Point(40, 452);
+            label4.Location = new Point(40, 405);
             label4.Name = "label4";
             label4.Size = new Size(60, 24);
             label4.TabIndex = 1;
@@ -121,7 +123,7 @@
             // txtEmail
             // 
             txtEmail.Font = new Font("Roboto", 12F);
-            txtEmail.Location = new Point(231, 452);
+            txtEmail.Location = new Point(231, 405);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(415, 32);
             txtEmail.TabIndex = 3;
@@ -142,13 +144,33 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
+            // cboNhanVien
+            // 
+            cboNhanVien.FormattingEnabled = true;
+            cboNhanVien.Location = new Point(233, 466);
+            cboNhanVien.Name = "cboNhanVien";
+            cboNhanVien.Size = new Size(413, 28);
+            cboNhanVien.TabIndex = 5;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Roboto", 12F);
+            label5.Location = new Point(40, 466);
+            label5.Name = "label5";
+            label5.Size = new Size(65, 24);
+            label5.TabIndex = 1;
+            label5.Text = "Bạn là";
+            // 
             // DangKyGUI
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(693, 618);
+            Controls.Add(cboNhanVien);
             Controls.Add(btnDangKy);
             Controls.Add(txtEmail);
+            Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(txtXacNhanMK);
             Controls.Add(label3);
@@ -160,6 +182,7 @@
             Name = "DangKyGUI";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng ký tài khoản";
+            Load += DangKyGUI_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
@@ -179,5 +202,7 @@
         private TextBox txtEmail;
         private Button btnDangKy;
         private ErrorProvider errorProvider1;
+        private ComboBox cboNhanVien;
+        private Label label5;
     }
 }

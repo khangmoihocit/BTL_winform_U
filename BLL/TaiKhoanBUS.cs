@@ -22,7 +22,7 @@ namespace BUS
             => taiKhoanDAO.findByTentaikhoanAndMatkhau(tenTaiKhoan, matKhau);
         public List<TaiKhoanDTO> findByTentaikhoan(string tenTaiKhoan) => taiKhoanDAO.findByTentaikhoan(tenTaiKhoan);
         public List<TaiKhoanDTO> findByEmail(string email) => taiKhoanDAO.findByEmail(email);
-        public void add(TaiKhoanDTO taiKhoanDTO) => taiKhoanDAO.add(taiKhoanDTO);
+        public void add(TaiKhoanDTO taiKhoanDTO, NhanVienDTO nhanVienDTO) => taiKhoanDAO.add(taiKhoanDTO, nhanVienDTO);
 
     }
 }
