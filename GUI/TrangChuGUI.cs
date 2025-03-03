@@ -36,7 +36,6 @@ namespace GUI
             childForm.Dock = DockStyle.Fill;
 
             panel_Body.Controls.Clear();
-
             panel_Body.Controls.Add(childForm);
             panel_Body.Tag = childForm;
             childForm.BringToFront();

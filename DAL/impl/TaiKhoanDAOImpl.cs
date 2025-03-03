@@ -91,19 +91,6 @@ namespace DAO.impl
             }
         }
 
-        public void update(TaiKhoanDTO t)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void deleteById(TaiKhoanDTO t)
-        {
-            throw new NotImplementedException();
-        }
-
-        public TaiKhoanDTO findById(string id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
